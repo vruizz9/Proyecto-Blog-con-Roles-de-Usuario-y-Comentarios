@@ -1,1 +1,50 @@
-<p>login works!</p>
+<div class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+  <div class="bg-white shadow-lg rounded-lg max-w-md w-full overflow-hidden">
+    
+    <!-- Header con fondo degradado -->
+    <div class="bg-gradient-to-r from-purple-800 to-pink-500 p-6 text-white text-center">
+      <div class="text-3xl font-bold">LOREM<span class="font-light">IPSUM</span></div>
+    </div>
+
+    <!-- Formulario -->
+    <div class="p-8 space-y-5">
+      <div class="flex items-center border border-gray-300 rounded px-3 py-2">
+        <span class="text-pink-500 mr-2">
+          <i class="fas fa-user"></i>
+        </span>
+        <input type="text" placeholder="Username" class="w-full focus:outline-none">
+      </div>
+
+      <div class="flex items-center border border-gray-300 rounded px-3 py-2">
+        <span class="text-pink-500 mr-2">
+          <i class="fas fa-lock"></i>
+        </span>
+        <input type="password" placeholder="Password" class="w-full focus:outline-none">
+      </div>
+
+      <!-- Botón login -->
+      <button class="w-full py-2 font-bold text-white rounded bg-gradient-to-r from-pink-500 to-purple-800 hover:opacity-90">
+        LOGIN
+      </button>
+
+      <!-- Forgot password -->
+      <div class="text-sm text-pink-600 text-left">
+        <a href="#" class="hover:underline">Forgot your password?</a>
+      </div>
+
+      <!-- Divider -->
+      <div class="flex items-center gap-2 text-gray-400 text-sm">
+        <hr class="flex-grow border-gray-300">
+        <span>or</span>
+        <hr class="flex-grow border-gray-300">
+      </div>
+
+      <!-- Crear cuenta -->
+      <button class="w-full py-2 text-gray-600 border-2 border-transparent bg-white font-semibold rounded 
+        hover:text-pink-700 hover:border-pink-500 transition duration-200"
+        style="border-image: linear-gradient(to right, #f43f5e, #8b5cf6) 1;">
+        Create an Account
+      </button>
+    </div>
+  </div>
+</div>
