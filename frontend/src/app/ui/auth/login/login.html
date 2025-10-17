@@ -1,0 +1,96 @@
+<div
+  class="relative min-h-screen flex items-center justify-center p-4 overflow-hidden login-bg"
+>
+  <!-- Contenedor del login -->
+  <div
+    class="bg-white shadow-lg rounded-lg max-w-md w-full overflow-hidden relative z-10"
+  >
+    <!-- Header con fondo degradado -->
+    <div
+      class="bg-gradient-to-r from-purple-800 to-pink-500 p-6 text-white text-center"
+    >
+      <div class="text-3xl font-bold">LOGIN</div>
+    </div>
+
+    <!-- Formulario -->
+    <form #form="ngForm" (ngSubmit)="onLogin(form)" class="p-8 space-y-5">
+      <!-- Usuario -->
+      <div>
+        <div
+          class="flex items-center border border-gray-300 rounded px-3 py-2"
+          [ngClass]="{ 'border-red-500': usuario.invalid && usuario.touched }"
+        >
+          <span class="text-pink-500 mr-2">
+            <i class="fas fa-user"></i>
+          </span>
+          <input
+            name="usuario"
+            [(ngModel)]="username"
+            #usuario="ngModel"
+            type="text"
+            required
+            placeholder="Usuario"
+            class="w-full focus:outline-none"
+          />
+        </div>
+
+        @if (usuario.errors?.['required'] && usuario.touched) {
+        <div class="text-red-500 text-sm mt-1">El usuario es obligatorio.</div>
+        }
+      </div>
+
+      <!-- Contraseña -->
+      <div>
+        <div
+          class="flex items-center border border-gray-300 rounded px-3 py-2 relative"
+          [ngClass]="{
+            'border-red-500': contrasena.invalid && contrasena.touched
+          }"
+        >
+          <span class="text-pink-500 mr-2">
+            <i class="fas fa-lock"></i>
+          </span>
+          <input
+            name="contrasena"
+            [(ngModel)]="password"
+            #contrasena="ngModel"
+            [type]="mostrarContrasena ? 'text' : 'password'"
+            required
+            placeholder="Contraseña"
+            class="w-full focus:outline-none"
+          />
+          <button
+            type="button"
+            (click)="toggleMostrarContrasena()"
+            class="absolute right-3 text-gray-500 hover:text-pink-500"
+          >
+            <i
+              class="{{
+                mostrarContrasena ? 'fas fa-eye-slash' : 'fas fa-eye'
+              }}"
+            ></i>
+          </button>
+        </div>
+
+        @if (contrasena.errors?.['required'] && contrasena.touched) {
+        <div class="text-red-500 text-sm mt-1">
+          La contraseña es obligatoria.
+        </div>
+        }
+      </div>
+
+      <!-- Botón login -->
+      <button
+        [disabled]="form.invalid"
+        type="submit"
+        class="w-full py-2 font-bold text-white rounded bg-gradient-to-r from-purple-800 to-pink-500 hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        LOGIN
+      </button>
+
+      <div *ngIf="errorMessage" class="error">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,142 @@
+// src/app/core/services/blog.service.ts
+import { Injectable } from '@angular/core';
+
+export interface Blog {
+  id: string;
+  title: string;
+  author?: {
+    name?: string;
+    avatarUrl?: string;
+  };
+  coverUrl?: string;
+  excerpt: string;
+  publishedAt: string;
+  readTimeMinutes?: number;
+  tags?: string[];
+  commentsCount?: number;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BlogService {
+  private blogs: Blog[] = [
+  {
+    id: "1",
+    title: "Cómo mejorar la retención de clientes en 2025",
+    coverUrl: "https://picsum.photos/800/400?random=1",
+    excerpt:
+      "Resumen breve de estrategias para aumentar la retención mediante la personalización y programas de fidelización.",
+    publishedAt: "2025-08-15T10:00:00Z",
+    readTimeMinutes: 6,
+    tags: ["Retención", "Marketing"],
+    commentsCount: 12,
+  },
+  {
+    id: "2",
+    title: "Diseñando componentes accesibles con Tailwind",
+    coverUrl: "https://picsum.photos/800/400?random=2",
+    excerpt:
+      "Consejos prácticos para crear componentes de interfaz accesibles y adaptables usando Tailwind CSS.",
+    publishedAt: "2025-07-20T08:30:00Z",
+    readTimeMinutes: 8,
+    tags: ["Accesibilidad", "UI/UX"],
+    commentsCount: 3,
+  },
+  {
+    id: "3",
+    title: "5 Tendencias tecnológicas que marcarán el 2026",
+    coverUrl: "https://picsum.photos/800/400?random=3",
+    excerpt: "Una visión general de las tecnologías que dominarán el próximo año.",
+    publishedAt: "2025-06-05T14:20:00Z",
+    readTimeMinutes: 5,
+    tags: ["Tecnología"],
+    commentsCount: 7,
+  },
+  {
+    id: "4",
+    title: "Buenas prácticas de automatización en marketing",
+    coverUrl: "https://picsum.photos/800/400?random=4",
+    excerpt:
+      "Aprende a construir flujos de trabajo automatizados que nutran clientes potenciales y ahorren tiempo.",
+    publishedAt: "2025-09-01T11:00:00Z",
+    readTimeMinutes: 10,
+    tags: ["Marketing"],
+    commentsCount: 15,
+  },
+  {
+    id: "5",
+    title: "Errores de UI/UX que debes evitar en 2025",
+    coverUrl: "https://picsum.photos/800/400?random=5",
+    excerpt:
+      "Los errores más comunes en el diseño de interfaces y cómo prevenirlos.",
+    publishedAt: "2025-05-10T09:15:00Z",
+    readTimeMinutes: 7,
+    tags: ["UI/UX", "Diseño"],
+    commentsCount: 5,
+  },
+  {
+    id: "6",
+    title: "Cómo crear un programa de fidelización efectivo",
+    coverUrl: "https://picsum.photos/800/400?random=6",
+    excerpt:
+      "Diseña un programa de recompensas que mantenga a tus clientes regresando.",
+    publishedAt: "2025-07-28T12:45:00Z",
+    readTimeMinutes: 6,
+    tags: ["Retención", "Marketing"],
+    commentsCount: 9,
+  },
+  {
+    id: "7",
+    title: "Sistemas de diseño: por qué tu equipo necesita uno",
+    coverUrl: "https://picsum.photos/800/400?random=7",
+    excerpt:
+      "Un sistema de diseño mejora la coherencia y escalabilidad de tus productos digitales.",
+    publishedAt: "2025-08-05T13:00:00Z",
+    readTimeMinutes: 9,
+    tags: ["Diseño", "UI/UX"],
+    commentsCount: 6,
+  },
+  {
+    id: "8",
+    title: "Las 10 mejores herramientas para desarrolladores frontend",
+    coverUrl: "https://picsum.photos/800/400?random=8",
+    excerpt:
+      "Descubre las herramientas esenciales que acelerarán tu proceso de desarrollo.",
+    publishedAt: "2025-07-10T16:30:00Z",
+    readTimeMinutes: 4,
+    tags: ["Tecnología"],
+    commentsCount: 2,
+  },
+  {
+    id: "9",
+    title: "Feedback del cliente: el arma secreta",
+    coverUrl: "https://picsum.photos/800/400?random=9",
+    excerpt:
+      "Cómo usar los comentarios de tus clientes para mejorar tus productos y la experiencia de usuario.",
+    publishedAt: "2025-08-25T18:15:00Z",
+    readTimeMinutes: 5,
+    tags: ["Retención"],
+    commentsCount: 11,
+  },
+  {
+    id: "10",
+    title: "Creando experiencias digitales inclusivas",
+    coverUrl: "https://picsum.photos/800/400?random=10",
+    excerpt:
+      "Por qué la accesibilidad es importante y cómo hacer tus aplicaciones usables para todos.",
+    publishedAt: "2025-09-03T07:45:00Z",
+    readTimeMinutes: 6,
+    tags: ["Accesibilidad", "UI/UX"],
+    commentsCount: 8,
+  },
+];
+
+  getBlogs(): Blog[] {
+    return this.blogs;
+  }
+
+  getBlogById(id: string): Blog | undefined {
+    return this.blogs.find(blog => blog.id === id);
+  }
+}

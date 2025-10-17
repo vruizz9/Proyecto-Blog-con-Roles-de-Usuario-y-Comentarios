@@ -1,0 +1,32 @@
+<nav *ngIf="totalPages > 1" class="flex justify-center items-center space-x-2 mt-6">
+  <!-- Botón anterior -->
+  <button
+    (click)="changePage(currentPage - 1)"
+    [disabled]="currentPage === 1"
+    class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+  >
+    Prev
+  </button>
+
+  <!-- Páginas -->
+  <button
+    *ngFor="let page of pages"
+    (click)="changePage(page)"
+    [class.bg-gradient-to-r]="page === currentPage"
+    [class.from-purple-700]="page === currentPage"
+    [class.to-pink-500]="page === currentPage"
+    [class.text-white]="page === currentPage"
+    class="px-3 py-1 rounded hover:bg-gray-300"
+  >
+    {{ page }}
+  </button>
+
+  <!-- Botón siguiente -->
+  <button
+    (click)="changePage(currentPage + 1)"
+    [disabled]="currentPage === totalPages"
+    class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+  >
+    Next
+  </button>
+</nav>

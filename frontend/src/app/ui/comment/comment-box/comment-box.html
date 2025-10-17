@@ -1,0 +1,38 @@
+<div class=" bg-gray-50 rounded-2xl p-6 shadow-sm border border-gray-200">
+  <h3 class="text-xl font-semibold mb-4 text-gray-800">Comentarios</h3>
+
+  <div *ngIf="comments.length > 0; else noComments" class="space-y-4">
+    <div
+      *ngFor="let comment of comments"
+      class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm"
+    >
+      <div class="flex items-center gap-2 mb-1">
+        <span class="font-semibold text-indigo-700">{{ getUsername(comment.userId) }}</span>
+        <span class="text-gray-400 text-sm">•</span>
+        <span class="text-gray-400 text-sm">hace un momento</span>
+      </div>
+      <p class="text-gray-700 leading-relaxed">{{ comment.content }}</p>
+    </div>
+  </div>
+
+  <ng-template #noComments>
+    <p class="text-gray-500 italic">No hay comentarios aún. ¡Sé el primero en comentar!</p>
+  </ng-template>
+
+  <div class="mt-6 border-t border-gray-200 pt-4">
+    <textarea
+      [(ngModel)]="newComment"
+      placeholder="Escribe un comentario..."
+      class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 resize-none"
+      rows="3"
+    ></textarea>
+    <div class="flex justify-end mt-3">
+      <button
+        (click)="addComment()"
+        class="px-5 py-2 bg-gradient-to-r from-indigo-600 to-pink-500 text-white rounded-xl font-medium shadow hover:opacity-90 transition"
+      >
+        Comentar
+      </button>
+    </div>
+  </div>
+</div>
