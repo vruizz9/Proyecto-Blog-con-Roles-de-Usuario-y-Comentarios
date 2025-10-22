@@ -1,11 +1,14 @@
-<nav *ngIf="totalPages > 1" class="flex justify-center items-center space-x-2 mt-6">
+<nav
+  *ngIf="totalPages > 1"
+  class="flex justify-center items-center space-x-2 mt-6"
+>
   <!-- Botón anterior -->
   <button
     (click)="changePage(currentPage - 1)"
     [disabled]="currentPage === 1"
-    class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+    class="flex items-center justify-center w-9 h-9 rounded-xl transition-all duration-200 bg-gray-100 text-gray-600 hover:bg-gradient-to-r disabled:opacity-40 disabled:hover:bg-gray-100 disabled:hover:text-gray-600 shadow-sm"
   >
-    Prev
+    <i class="fa-solid fa-arrow-left"></i>
   </button>
 
   <!-- Páginas -->
@@ -25,8 +28,8 @@
   <button
     (click)="changePage(currentPage + 1)"
     [disabled]="currentPage === totalPages"
-    class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+    class="flex items-center justify-center w-9 h-9 rounded-xl transition-all duration-200 bg-gray-100 text-gray-600 hover:bg-gradient-to-r disabled:opacity-40 disabled:hover:bg-gray-100 disabled:hover:text-gray-600 shadow-sm"
   >
-    Next
+    <i class="fa-solid fa-arrow-right"></i>
   </button>
 </nav>

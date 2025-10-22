@@ -29,7 +29,7 @@ export class LoginComponent {
         if (user) {
           console.log('✅ Login exitoso:', user);
           localStorage.setItem('currentUser', JSON.stringify(user));
-          this.router.navigate(['/lista']);
+          this.router.navigate(['/inicio']);
         } else {
           this.errorMessage = 'Usuario o contraseña incorrectos';
         }
